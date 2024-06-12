@@ -12,29 +12,83 @@ forums](https://discuss.streamlit.io).
 
 In the meantime, below is an example of what you can do with just a few lines of code:
 """
+# Title of the CV
+st.title("John Doe's CV")
 
-num_points = st.slider("Number of points in spiral", 1, 10000, 1100)
-num_turns = st.slider("Number of turns in spiral", 1, 300, 31)
+# Contact Information
+st.subheader("Contact Information")
+st.write("""
+- **Email:** john.doe@example.com
+- **Phone:** +123 456 7890
+- **LinkedIn:** [linkedin.com/in/johndoe](https://www.linkedin.com/in/johndoe)
+- **GitHub:** [github.com/johndoe](https://github.com/johndoe)
+""")
 
-indices = np.linspace(0, 1, num_points)
-theta = 2 * np.pi * num_turns * indices
-radius = indices
+# Summary
+st.subheader("Summary")
+st.write("""
+I am a highly motivated software developer with a passion for creating innovative solutions and a strong background in Python, data analysis, and machine learning.
+""")
 
-x = radius * np.cos(theta)
-y = radius * np.sin(theta)
+# Experience
+st.subheader("Experience")
+st.write("""
+**Software Developer at XYZ Corp**
+*January 2020 - Present*
+- Developed and maintained web applications using Python and Django.
+- Implemented machine learning models to improve product recommendations.
+- Collaborated with cross-functional teams to design and implement new features.
 
-df = pd.DataFrame({
-    "x": x,
-    "y": y,
-    "idx": indices,
-    "rand": np.random.randn(num_points),
-})
+**Junior Developer at ABC Inc**
+*June 2018 - December 2019*
+- Assisted in the development of internal tools using Python and Flask.
+- Wrote unit tests to ensure code quality and reliability.
+- Participated in code reviews and provided constructive feedback.
+""")
 
-st.altair_chart(alt.Chart(df, height=700, width=700)
-    .mark_point(filled=True)
-    .encode(
-        x=alt.X("x", axis=None),
-        y=alt.Y("y", axis=None),
-        color=alt.Color("idx", legend=None, scale=alt.Scale()),
-        size=alt.Size("rand", legend=None, scale=alt.Scale(range=[1, 150])),
-    ))
+# Education
+st.subheader("Education")
+st.write("""
+**Master of Science in Computer Science**
+*University of Technology, 2018*
+- Graduated with Honors
+- Relevant coursework: Machine Learning, Data Mining, Software Engineering
+
+**Bachelor of Science in Information Technology**
+*Institute of Technology, 2016*
+- Relevant coursework: Algorithms, Databases, Web Development
+""")
+
+# Skills
+st.subheader("Skills")
+st.write("""
+- Programming Languages: Python, JavaScript, SQL
+- Web Development: Django, Flask, React
+- Data Analysis: Pandas, NumPy, Scikit-learn
+- Tools: Git, Docker, Jenkins
+""")
+
+# Projects
+st.subheader("Projects")
+st.write("""
+**Project Name**
+- Description of the project and technologies used.
+
+**Another Project**
+- Description of the project and technologies used.
+""")
+
+# Certifications
+st.subheader("Certifications")
+st.write("""
+- **Certified Python Developer**, Python Institute, 2019
+- **Machine Learning Specialization**, Coursera, 2020
+""")
+
+# Interests
+st.subheader("Interests")
+st.write("""
+- Machine Learning
+- Open Source Contribution
+- Hiking and Outdoor Activities
+""")
